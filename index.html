@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#570b2b">
+
+<title>My Forever Love ❤️ | Karva Chauth</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff6ed;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(ellipse at top, #8f173b 0%, transparent 55%),
+        linear-gradient(135deg, #21000e, #570b2b, #20000e);
+}
+
+body::before {
+    content: "♥  ♡  ♥  ♡  ♥  ♡  ♥";
+    position: fixed;
+    inset: 0;
+    font-size: 65px;
+    letter-spacing: 35px;
+    line-height: 150px;
+    word-break: break-all;
+    color: rgba(255, 120, 160, 0.07);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+    padding: 35px 20px 55px;
+    text-align: center;
+}
+
+.moon {
+    font-size: 65px;
+    filter: drop-shadow(0 0 22px #ffe7a1);
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px #ffb4c9); }
+    to { filter: drop-shadow(0 0 30px #ffe8a6); }
+}
+
+.top-line {
+    color: #ffd9a0;
+    letter-spacing: 5px;
+    font-size: 11px;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(45px, 9vw, 83px);
+    color: #ffcf91;
+    font-weight: normal;
+    text-shadow: 0 0 22px #ff426f80;
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    margin: 12px 0 27px;
+    color: #ffe2df;
+}
+
+.photo-frame {
+    position: relative;
+    width: min(100%, 440px);
+    margin: 0 auto 30px;
+    padding: 10px;
+    border: 1px solid #ffd58c;
+    border-radius: 220px 220px 35px 35px;
+    background: linear-gradient(145deg, #ffda9c, #b32b52, #ffcf91);
+    box-shadow: 0 0 30px #ff537c55;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
+    border-radius: 210px 210px 27px 27px;
+}
+
+.photo-caption {
+    font-family: 'Great Vibes', cursive;
+    font-size: 29px;
+    color: #ffe0a9;
+    margin-top: 17px;
+}
+
+.message-card {
+    max-width: 690px;
+    margin: 35px auto;
+    padding: 32px 25px;
+    border: 1px solid #e9b778;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 224, 214, 0.11),
+        rgba(115, 8, 48, 0.45)
+    );
+    box-shadow: 0 0 40px #ff426f1c;
+    backdrop-filter: blur(8px);
+}
+
+.message-card h2 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    font-size: clamp(34px, 7vw, 49px);
+    color: #ffd293;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    line-height: 2;
+    color: #fff1eb;
+}
+
+.message .highlight {
+    display: block;
+    margin: 18px 0;
+    color: #ffc4d5;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    color: #ffd293;
+    font-size: 36px;
+    margin-top: 22px;
+}
+
+.divider {
+    color: #ffcf91;
+    margin: 25px 0;
+    letter-spacing: 12px;
+    font-size: 20px;
+}
+
+.love-note {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    line-height: 1.9;
+    font-size: 16px;
+    color: #ffe0df;
+}
+
+.falling {
+    position: fixed;
+    top: -40px;
+    z-index: 5;
+    pointer-events: none;
+    animation: fall linear forwards;
+    user-select: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(110vh) rotate(650deg);
+        opacity: 0.1;
+    }
+}
+
+.controls {
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button {
+    padding: 13px 23px;
+    border: 1px solid #ffd293;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #a91f4c, #6e1234);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d43c68;
+    box-shadow: 0 0 20px #ff749b80;
+    transform: translateY(-2px);
+}
+
+button:focus-visible {
+    outline: 2px solid #ffe8a6;
+    outline-offset: 4px;
+}
+
+footer {
+    color: #eab8c5;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    line-height: 2;
+}
+
+@media (max-width: 500px) {
+    .container { padding: 25px 14px 40px; }
+    .photo-frame img { height: 390px; }
+    .message-card { padding: 25px 18px; }
+    .message { font-size: 15px; }
+    .top-line { letter-spacing: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .moon { animation: none; }
+    .falling { animation-duration: 10s !important; }
+    button { transition: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="moon">🌙</div>
+
+    <div class="top-line">
+        A celebration of love • Faith • Forever
+    </div>
+
+    <h1>Happy Karva Chauth</h1>
+
+    <p class="subtitle">
+        To my future wife, my favorite person, my forever love ❤️
+    </p>
+
+    <div class="photo-frame">
+        <img
+            src="photo.jpg"
+            alt="A romantic couple celebrating their love"
+        >
+    </div>
+
+    <div class="photo-caption">
+        You, Me &amp; A Lifetime of Togetherness 💕
+    </div>
+
+    <div class="divider">✧ ❣ ✧</div>
+
+    <section class="message-card">
+        <h2>To My Soon-to-Be Wife</h2>
+
+        <div class="message">
+            My beautiful future wife,
+
+            <br><br>
+
+            This Karva Chauth, even though we are still waiting
+            for the day when I can call you my wife, my heart
+            has already chosen you for a lifetime.
+
+            <span class="highlight">
+                "One day, I won't just wish to see you...
+                I'll wake up beside you, every single morning." ❤️
+            </span>
+
+            I dream of the day when I will stand beside you
+            under the moonlight, hold your hand, look into
+            your eyes, and promise you that no matter what
+            life brings, you will never have to face it alone.
+
+            <br><br>
+
+            I may not be beside you to break your fast today,
+            but please know that my heart is always with you.
+            Every prayer you make for us is a prayer I carry
+            in my heart too.
+
+            <br><br>
+
+            I promise to respect your dreams, protect your
+            smile, celebrate your happiness, hold you through
+            your difficult days, and love you even more with
+            every passing year.
+
+            <span class="highlight">
+                You are not just the woman I want to marry.
+                You are the home my heart has been searching for. 💖
+            </span>
+
+            Someday, we will celebrate this beautiful festival
+            together. I'll look at the moon, then look at you,
+            and thank the universe for making you mine.
+
+            <br><br>
+
+            Until that day arrives, keep smiling, keep shining,
+            and always remember that somewhere, your future
+            husband is falling in love with you all over again.
+        </div>
+
+        <div class="signature">
+            Forever Yours, Your Future Husband 💍
+        </div>
+    </section>
+
+    <div class="divider">🌹 💗 🌹</div>
+
+    <p class="love-note">
+        Different days may pass, the seasons may change,<br>
+        but my heart will keep choosing you — again and again.<br>
+        Today, tomorrow, and in every lifetime. ❤️
+    </p>
+
+    <div class="controls">
+        <button type="button" onclick="showerFlowers()">
+            🌹 Shower of Flowers
+        </button>
+
+        <button type="button" onclick="showerHearts()">
+            💖 Send You Love
+        </button>
+    </div>
+
+    <footer>
+        Made with all my love, just for you ❤️
+        <br>
+        My favorite hello, my hardest goodbye, my forever.
+        <br><br>
+        ✨ Until I can call you my wife... ✨
+    </footer>
+
+</div>
+
+<!-- Autoplay music: no music button -->
+<audio id="loveSong" loop autoplay preload="auto">
+    <source
+        src="song.mp3"
+        type="audio/mpeg"
+    >
+    Your browser does not support audio playback.
+</audio>
+
+<script>
+const symbols = {
+    hearts: ["❤️", "💖", "💕", "💗", "💘", "💝"],
+    flowers: ["🌹", "🌸", "🌺", "🌷", "💮", "✨"]
+};
+
+function createFallingItem(type) {
+    const item = document.createElement("div");
+    item.className = "falling";
+
+    const choices = symbols[type];
+
+    item.textContent =
+        choices[Math.floor(Math.random() * choices.length)];
+
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (16 + Math.random() * 24) + "px";
+    item.style.animationDuration = (4 + Math.random() * 5) + "s";
+    item.style.opacity = 0.7 + Math.random() * 0.3;
+
+    document.body.appendChild(item);
+
+    item.addEventListener("animationend", () => item.remove(), {
+        once: true
+    });
+}
+
+function showerFlowers() {
+    for (let i = 0; i < 55; i++) {
+        setTimeout(() => createFallingItem("flowers"), i * 70);
+    }
+}
+
+function showerHearts() {
+    for (let i = 0; i < 55; i++) {
+        setTimeout(() => createFallingItem("hearts"), i * 70);
+    }
+}
+
+// Gentle continuous romantic animation
+setInterval(() => {
+    createFallingItem(
+        Math.random() > 0.5 ? "hearts" : "flowers"
+    );
+}, 450);
+
+// Attempt autoplay; browsers may require visitor interaction.
+const song = document.getElementById("loveSong");
+
+async function startMusic() {
+    try {
+        await song.play();
+    } catch (error) {
+        // Autoplay may be blocked by the browser.
+        // No music button is added, as requested.
+        console.log("Autoplay was blocked or the song could not load.");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", startMusic);
+
+window.addEventListener("load", () => {
+    showerHearts();
+    startMusic();
+});
+</script>
+
+</body>
+</html>
