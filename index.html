@@ -378,21 +378,6 @@ footer {
         Today, tomorrow, and in every lifetime. ❤️
     </p>
 
-    <!-- MUSIC CONTROLS -->
-    <div class="controls">
-        <button id="musicButton" type="button">
-            🎵 Play Our Love Song ❤️
-        </button>
-
-        <button id="heartButton" type="button">
-            💖 Shower Me With Love
-        </button>
-
-        <button id="flowerButton" type="button">
-            🌹 Shower Flowers
-        </button>
-    </div>
-
     <p id="musicStatus" aria-live="polite">
         Tap "Play Our Love Song" to hear our special song ❤️
     </p>
@@ -408,7 +393,7 @@ footer {
 </div>
 
 <!-- SONG: Upload song.mp3 beside index.html -->
-<audio id="loveSong" loop preload="auto">
+<audio id="loveSong" loop autoplay preload="auto">
     <source src="./song.mp3" type="audio/mpeg">
     Your browser does not support audio playback.
 </audio>
