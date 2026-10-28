@@ -31,7 +31,7 @@ body::before {
     position: fixed;
     inset: 0;
     font-size: 65px;
-    letter-spacing: 35px;
+    letter-spacing: 25px;
     line-height: 150px;
     word-break: break-all;
     color: rgba(255, 120, 160, 0.07);
@@ -81,6 +81,7 @@ h1 {
     font-size: 17px;
     margin: 12px 0 27px;
     color: #ffe2df;
+    line-height: 1.8;
 }
 
 .photo-frame {
@@ -100,6 +101,7 @@ h1 {
     height: 490px;
     object-fit: cover;
     border-radius: 210px 210px 27px 27px;
+    background: #570b2b;
 }
 
 .photo-caption {
@@ -169,27 +171,6 @@ h1 {
     color: #ffe0df;
 }
 
-.falling {
-    position: fixed;
-    top: -40px;
-    z-index: 5;
-    pointer-events: none;
-    animation: fall linear forwards;
-    user-select: none;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-5vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% { opacity: 1; }
-    100% {
-        transform: translateY(110vh) rotate(650deg);
-        opacity: 0.1;
-    }
-}
-
 .controls {
     margin: 25px auto;
     display: flex;
@@ -221,6 +202,13 @@ button:focus-visible {
     outline-offset: 4px;
 }
 
+#musicStatus {
+    color: #ffe0df;
+    font-size: 12px;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
 footer {
     color: #eab8c5;
     font-size: 12px;
@@ -229,18 +217,65 @@ footer {
     line-height: 2;
 }
 
+.falling {
+    position: fixed;
+    top: -40px;
+    z-index: 5;
+    pointer-events: none;
+    animation: fall linear forwards;
+    user-select: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(110vh) rotate(650deg);
+        opacity: 0.1;
+    }
+}
+
 @media (max-width: 500px) {
-    .container { padding: 25px 14px 40px; }
-    .photo-frame img { height: 390px; }
-    .message-card { padding: 25px 18px; }
-    .message { font-size: 15px; }
-    .top-line { letter-spacing: 3px; }
+    .container {
+        padding: 25px 14px 40px;
+    }
+
+    .photo-frame img {
+        height: 390px;
+    }
+
+    .message-card {
+        padding: 25px 18px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .top-line {
+        letter-spacing: 3px;
+    }
+
+    .message .highlight {
+        font-size: 18px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .moon { animation: none; }
-    .falling { animation-duration: 10s !important; }
-    button { transition: none; }
+    .moon {
+        animation: none;
+    }
+
+    .falling {
+        animation-duration: 10s !important;
+    }
+
+    button {
+        transition: none;
+    }
 }
 </style>
 </head>
@@ -261,10 +296,12 @@ footer {
         To my future wife, my favorite person, my forever love ❤️
     </p>
 
+    <!-- PHOTO: Upload photo.jpeg beside index.html -->
     <div class="photo-frame">
         <img
-            src="photo.jpeg"
+            src="./photo.jpeg"
             alt="A romantic couple celebrating their love"
+            onerror="this.onerror=null; this.alt='Please upload photo.jpeg beside index.html'; this.style.objectFit='contain'; this.style.padding='25px'; this.style.height='auto'; this.style.minHeight='250px'; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23570b2b%22/%3E%3Ctext x=%22200%22 y=%22185%22 font-size=%2260%22 text-anchor=%22middle%22%3E%F0%9F%92%95%3C/text%3E%3Ctext x=%22200%22 y=%22235%22 font-size=%2218%22 fill=%22%23ffe0a9%22 text-anchor=%22middle%22%3EUpload photo.jpeg%3C/text%3E%3C/svg%3E';"
         >
     </div>
 
@@ -275,6 +312,7 @@ footer {
     <div class="divider">✧ ❣ ✧</div>
 
     <section class="message-card">
+
         <h2>To My Soon-to-Be Wife</h2>
 
         <div class="message">
@@ -329,6 +367,7 @@ footer {
         <div class="signature">
             Forever Yours, Your Future Husband 💍
         </div>
+
     </section>
 
     <div class="divider">🌹 💗 🌹</div>
@@ -338,7 +377,26 @@ footer {
         but my heart will keep choosing you — again and again.<br>
         Today, tomorrow, and in every lifetime. ❤️
     </p>
-    
+
+    <!-- MUSIC CONTROLS -->
+    <div class="controls">
+        <button id="musicButton" type="button">
+            🎵 Play Our Love Song ❤️
+        </button>
+
+        <button id="heartButton" type="button">
+            💖 Shower Me With Love
+        </button>
+
+        <button id="flowerButton" type="button">
+            🌹 Shower Flowers
+        </button>
+    </div>
+
+    <p id="musicStatus" aria-live="polite">
+        Tap "Play Our Love Song" to hear our special song ❤️
+    </p>
+
     <footer>
         Made with all my love, just for you ❤️
         <br>
@@ -349,16 +407,16 @@ footer {
 
 </div>
 
-<!-- Autoplay music: no music button -->
-<audio id="loveSong" loop autoplay preload="auto">
-    <source
-        src="song.mp3"
-        type="audio/mpeg"
-    >
+<!-- SONG: Upload song.mp3 beside index.html -->
+<audio id="loveSong" loop preload="auto">
+    <source src="./song.mp3" type="audio/mpeg">
     Your browser does not support audio playback.
 </audio>
 
 <script>
+"use strict";
+
+// Romantic falling hearts and flowers
 const symbols = {
     hearts: ["❤️", "💖", "💕", "💗", "💘", "💝"],
     flowers: ["🌹", "🌸", "🌺", "🌷", "💮", "✨"]
@@ -380,48 +438,84 @@ function createFallingItem(type) {
 
     document.body.appendChild(item);
 
-    item.addEventListener("animationend", () => item.remove(), {
-        once: true
-    });
+    item.addEventListener("animationend", () => {
+        item.remove();
+    }, { once: true });
 }
 
-function showerFlowers() {
-    for (let i = 0; i < 55; i++) {
-        setTimeout(() => createFallingItem("flowers"), i * 70);
+// Prevent too many simultaneous animations.
+function shower(type) {
+    for (let i = 0; i < 35; i++) {
+        setTimeout(() => createFallingItem(type), i * 70);
     }
 }
 
-function showerHearts() {
-    for (let i = 0; i < 55; i++) {
-        setTimeout(() => createFallingItem("hearts"), i * 70);
-    }
-}
+document.getElementById("heartButton").addEventListener("click", () => {
+    shower("hearts");
+});
 
-// Gentle continuous romantic animation
+document.getElementById("flowerButton").addEventListener("click", () => {
+    shower("flowers");
+});
+
+// Gentle continuous animation
 setInterval(() => {
     createFallingItem(
         Math.random() > 0.5 ? "hearts" : "flowers"
     );
-}, 450);
+}, 700);
 
-// Attempt autoplay; browsers may require visitor interaction.
+// Music player
 const song = document.getElementById("loveSong");
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
 
-async function startMusic() {
-    try {
-        await song.play();
-    } catch (error) {
-        // Autoplay may be blocked by the browser.
-        // No music button is added, as requested.
-        console.log("Autoplay was blocked or the song could not load.");
+let isPlaying = false;
+
+musicButton.addEventListener("click", async () => {
+    if (!isPlaying) {
+        musicStatus.textContent = "Loading your love song... ❤️";
+        musicButton.disabled = true;
+
+        try {
+            await song.play();
+            isPlaying = true;
+            musicButton.textContent = "⏸ Pause Our Love Song";
+            musicStatus.textContent = "Playing our special song... 💕";
+        } catch (error) {
+            isPlaying = false;
+            musicStatus.textContent =
+                "Music couldn't load. Please check that song.mp3 is uploaded correctly.";
+            musicButton.textContent = "🎵 Try Playing Again ❤️";
+        } finally {
+            musicButton.disabled = false;
+        }
+    } else {
+        song.pause();
+        isPlaying = false;
+        musicButton.textContent = "🎵 Play Our Love Song ❤️";
+        musicStatus.textContent = "Song paused. Tap to play again. 💗";
     }
-}
+});
 
-document.addEventListener("DOMContentLoaded", startMusic);
+// Keep the button in sync if playback stops or fails.
+song.addEventListener("error", () => {
+    isPlaying = false;
+    musicButton.textContent = "🎵 Play Our Love Song ❤️";
+    musicStatus.textContent =
+        "Unable to load song.mp3. Check its filename and upload.";
+});
 
-window.addEventListener("load", () => {
-    showerHearts();
-    startMusic();
+song.addEventListener("ended", () => {
+    isPlaying = false;
+    musicButton.textContent = "🎵 Play Our Love Song ❤️";
+});
+
+song.addEventListener("pause", () => {
+    if (isPlaying) {
+        isPlaying = false;
+        musicButton.textContent = "🎵 Play Our Love Song ❤️";
+    }
 });
 </script>
 
